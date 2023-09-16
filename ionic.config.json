@@ -1,0 +1,7 @@
+{
+  "name": "stock-household",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
