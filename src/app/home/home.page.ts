@@ -14,7 +14,7 @@ import { DataService, Message } from '../services/data.service';
 })
 export class HomePage {
   private data = inject(DataService);
-  constructor() {}
+  constructor() { }
 
   refresh(ev: any) {
     setTimeout(() => {

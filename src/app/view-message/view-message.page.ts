@@ -17,7 +17,7 @@ export class ViewMessagePage implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private platform = inject(Platform);
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
