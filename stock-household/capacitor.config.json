@@ -1,0 +1,11 @@
+{
+  "appId": "com.example.app",
+  "appName": "stock-household",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

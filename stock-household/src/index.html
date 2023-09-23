@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <title>ホームストック</title>
-
-    <base href="/" />
-
-    <meta name="color-scheme" content="light dark" />
+    <meta charset="UTF-8" />
+    <title>Awesome Capacitor App</title>
     <meta
       name="viewport"
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -14,11 +10,6 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
 
-    <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
-
-    <!-- add to homescreen for ios -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <script
       type="module"
       src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
@@ -27,9 +18,15 @@
       nomodule
       src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
     ></script>
-  </head>
 
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="theme-color" content="#31d53d" />
+  </head>
   <body>
-    <app-root></app-root>
+    <capacitor-welcome></capacitor-welcome>
+
+    <script src="./js/capacitor-welcome.js" type="module"></script>
   </body>
 </html>
