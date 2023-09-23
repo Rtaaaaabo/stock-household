@@ -1,20 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { IonicModule, RefresherCustomEvent } from '@ionic/angular';
-import { MessageComponent } from '../message/message.component';
 
-import { DataService, Message } from '../services/data.service';
+import { DataService } from '../services/data/data.service';
+import { ModalController } from '@ionic/angular';
+import { from } from 'rxjs';
+import { AddStockModalComponent } from '../components/add-stock-modal/add-stock-modal.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, MessageComponent],
+  imports: [IonicModule, CommonModule],
 })
 export class HomePage {
   private data = inject(DataService);
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -22,7 +24,11 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+
+  onOpenAddStockModal(): void {
+    const modal = from(this.modalCtrl.create({
+      component: AddStockModalComponent,
+    }));
+    modal.subscribe((modalEl: HTMLIonModalElement) => modalEl.present())
   }
 }
