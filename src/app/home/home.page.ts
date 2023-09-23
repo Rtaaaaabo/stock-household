@@ -4,7 +4,7 @@ import { IonicModule, RefresherCustomEvent } from '@ionic/angular';
 
 import { DataService } from '../services/data/data.service';
 import { ModalController } from '@ionic/angular';
-import { from } from 'rxjs';
+import { from, tap, map } from 'rxjs';
 import { AddStockModalComponent } from '../components/add-stock-modal/add-stock-modal.component';
 
 @Component({
@@ -25,10 +25,14 @@ export class HomePage {
   }
 
 
-  onOpenAddStockModal(): void {
-    const modal = from(this.modalCtrl.create({
+  async onOpenAddStockModal(): Promise<void> {
+    const modal = await this.modalCtrl.create({
       component: AddStockModalComponent,
-    }));
-    modal.subscribe((modalEl: HTMLIonModalElement) => modalEl.present())
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss()
+    console.log(role);
+    // .pipe(filter(((data: { file: File | null, result: 'cancel' | 'confirm' }) => result === 'confirm'))).subscribe((data: { file: File | null }) => console.log(data)));
   }
 }

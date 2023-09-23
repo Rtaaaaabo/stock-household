@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-stock-modal',
   templateUrl: './add-stock-modal.component.html',
   styleUrls: ['./add-stock-modal.component.scss'],
+  standalone: true,
+  imports: [IonicModule],
 })
 export class AddStockModalComponent implements OnInit {
 
@@ -14,11 +17,11 @@ export class AddStockModalComponent implements OnInit {
 
   ngOnInit() { }
 
-  onCancel(): void {
+  onClickCancel(): void {
     this.modalCtrl.dismiss(null, 'cancel');
   };
 
-  onConfirm(): void {
+  onClickConfirm(): void {
     this.modalCtrl.dismiss(this.stockPicture, 'confirm');
   }
 
